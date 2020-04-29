@@ -1,0 +1,45 @@
+body{
+    font-size: 18px;
+    
+    color: #ffffff;
+    background: #000000;
+    
+    font-family: 'Comic Neue', cursive;
+}
+.carousel-item img{
+    height: auto;
+    width: auto;
+}
+h1,h2,h3,h4{
+    font-family: 'Yesteryear', cursive;
+}
+.fa-dog{
+    color: #000;
+}
+#main-page{
+    color: #000;
+}
+.navbar-brand img{
+    height: 50px;
+    width: 100px;
+}
+.carousel-item img{
+    height: 700px;
+    width: 200px;
+}
+#st2 .row .col-lg-4 img{
+    width: 350px;
+}
+#carouselID{
+    margin-top: 50px;
+}
+#gallery .card{
+    color: black;
+}
+#gallery .card img{
+    height: 350px;
+    width: inherit;
+}
+#myModal .modal-dialog{
+    color: black;
+}

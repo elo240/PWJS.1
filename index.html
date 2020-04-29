@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en" ng-app="portfolioApp">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&family=Yesteryear&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ca7a5b433d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-inverse bg-light fixed-top">
+            <a class="navbar-brand" href="#"><img src="img/html5.jpg" alt="Logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#main-page">
+                                <i class="fas fa-home"></i>
+                                Home
+                            </a>
+                            <a class="dropdown-item btn btn-primary" href="#gallery">
+                                <i class="fas fa-images"></i> Galeria
+                            </a>
+                            <a class="dropdown-item" href="#st2">
+                                <i class="fas fa-cat"></i>
+                                Dwa
+                            </a>
+                            <a class="dropdown-item btn btn-primary" href="#kontakt">
+                                <i class="fas fa-address-book"></i>
+                                Kontakt
+                            </a>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="carouselID" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" ng-controller="CaruzelListCtrl">
+                <div class="carousel-item active">
+                <img class="d-block w-100" src="{{caruzelItems[0].image}}">
+                </div>
+                <div class="carousel-item" ng-repeat="caruzelItem in caruzelItems" ng-if="caruzelItem.number!='1'">
+                    <img class="d-block w-100" src="{{caruzelItem.image}}" alt=" {{caruzelItem.number}} slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselID" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselID" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <section id="main-page" class="jumbotron">
+            <h1>
+                <i class="fas fa-dog"></i>
+                Pierwsza sekcja strony
+            </h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare lorem purus, ac tristique turpis vehicula in. Curabitur eget mollis nisl. Curabitur dignissim tincidunt bibendum. Mauris eu consequat dui. Vivamus id leo lorem. Donec sodales porttitor quam, sit amet imperdiet tellus. Curabitur congue non leo ac tincidunt. Praesent ut lectus iaculis, facilisis nisl in, scelerisque tortor. Nullam eget faucibus dui. Curabitur consequat orci leo, faucibus tincidunt leo imperdiet eget. Curabitur sed purus imperdiet, fringilla sem non, laoreet nunc. Proin interdum massa nec tortor tempus varius.
+            </p>
+        </section>
+        <section id="gallery" ng-controller="GalleryListCtrl">
+            <h1>{{title}}</h1>
+            Wyszukaj
+            <input ng-model="query"><br>
+            <p ng-if="query">Wyniki wyszukiwania dla
+                <b>{{query}}</b>
+            </p>
+            <p ng-if="!query">This are my photos
+                Ilość elementów: {{galleries.length}}
+            </p>
+            <select ng-model="orderProp" ng-options="sort as sort.label for sort in sortList">
+            </select>
+            <p ng-if="orderProp">Galeria ułożona: {{orderProp.label}}</p>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 card" ng-repeat="gallery in galleries | filter: query |orderBy: orderProp.value">
+                    <img class="card-img" src="{{gallery.thumbnailUrl}}">
+                    <h3 class="card-title">{{gallery.title}}</h3>
+                    <p class="card-text"><strong>Date</strong>: {{gallery.when | date:'dd MMMM yyyy':'UTC'}}</p>
+                </div>
+            </div>
+        </section>
+        <section id="st2">
+            <h2><i class="fas fa-paw"></i> Lorem ipsum ...</h2>
+            <p class="text-info">
+                Curabitur sodales lorem odio, quis cursus nisl pharetra ac. Donec tincidunt eget ligula a ornare. Aenean semper ullamcorper ipsum vel consequat. Curabitur at libero id felis pretium consequat. Sed scelerisque, eros at semper sollicitudin, tellus urna efficitur orci, id porta ipsum magna vel justo. Etiam convallis lobortis aliquam. Vivamus laoreet urna eu magna lobortis, sed tempus enim convallis. Nunc ac vehicula sapien.
+            </p>
+            <div class="row">
+                <div class="col-lg-4">
+                    <img class="rounded-circle d-block mx-auto" src="img/dog5.jpg">
+                    <h3 class="text-secondary text-center">Curiosity</h3>
+                </div>
+                <div class="col-lg-4">
+                    <img class="rounded-circle d-block mx-auto" src="img/dog7.jpg">
+                    <h3 class="text-success text-center">Joy</h3>
+                </div>
+                <div class="col-lg-4">
+                    <img class="rounded-circle d-block mx-auto" src="img/dog6.jpg">
+                    <h3 class="text-warning text-center">Sloth</h3>
+                </div>
+            </div>
+        </section>
+        <section id="kontakt">
+            <div class="row" id="kontakt">
+                <form action="index.html#kontakt" name="contact" class="was-validated" method="post" onsubmit="return checkForm();">
+                    <fieldset>
+                        <legend><i class="fas fa-id-card"></i> Formularz kontaktowy</legend>
+                        <div id="name" class="form-group">
+                            <label class="form-control-label" for="contactName">Imie</label>
+                            <p id="errorName" class="d-none">Podanie imienia jest wymagane</p>
+                            <input type="text" id="contactName" class="form-control" placeholder="Imie i nazwisko" required onblur="errorName()" oninput="errorName()" />
+                        </div>
+                        <br />
+                        <label for="contactEmail">Email</label>
+                        <p id="errorEmail" class="d-none">Podanie Emaila jest wymagane</p>
+                        <input type="email" id="contactEmail" class="form-control" placeholder="Email@domain.com" required onblur="errorEmail()" oninput="errorEmail()" />
+                        <br />
+                        <p id="errorText" class="d-none">Podanie treści jest wymagane<br /></p>
+                        <label for="contactText">Treść</label>
+                        <textarea id="contactText" class="form-control" placeholder="TextArea" maxlength="250" required onblur="errorText()" oninput="errorText()"></textarea>
+                        <input type="submit" value="Wyślij" />
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+        <br />
+        <br />
+        <footer>
+            <a href="#" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+                Polityka prywatności
+            </a>
+        </footer>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis et mauris eu lacinia. Nullam ac tortor nisi. Nulla eget eros sed est tempus scelerisque. Etiam eget arcu venenatis, rutrum.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <script src="js/forms.js" type="text/javascript"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>
