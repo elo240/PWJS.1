@@ -1,0 +1,86 @@
+{
+    "galleries": [
+        {
+            "title": "Cute",
+            "when": "2020-04-08",
+            "thumbnailUrl": "img/gallery/cute.jpg"
+    }, {
+            "title": "All ears",
+            "when": "2020-04-27",
+            "thumbnailUrl": "img/gallery/ears.jpg"
+    }, {
+            "title": "Music",
+            "when": "2020-07-15",
+            "thumbnailUrl": "img/gallery/headphones.jpg"
+    }, {
+            "title": "Nose",
+            "when": "2020-08-27",
+            "thumbnailUrl": "img/gallery/nose.jpg"
+    }, {
+            "title": "Nose",
+            "when": "2020-09-07",
+            "thumbnailUrl": "img/gallery/nose2.jpg"
+    }, {
+            "title": "Pilot",
+            "when": "2020-09-23",
+            "thumbnailUrl": "img/gallery/pilot.jpg"
+    }, {
+            "title": "Shiro",
+            "when": "2020-10-23",
+            "thumbnailUrl": "img/gallery/shiro.jpg"
+    }, {
+            "title": "Winter",
+            "when": "2020-11-16",
+            "thumbnailUrl": "img/gallery/snow.jpg"
+    }, {
+            "title": "Stare",
+            "when": "2019-12-22",
+            "thumbnailUrl": "img/gallery/stare.jpg"
+    }
+    ],
+    "sortList":[
+        {
+            "label":"Alfabetycznie",
+            "value":"title"
+        },
+        {
+            "label":"Chronologicznie",
+            "value":"when"
+        },
+        {
+            "label":"Od najnowszej",
+            "value":"-when"
+        }
+    ],
+    "caruzelItems":[
+        {
+            "image":"img/dog0.jpg",
+            "number":"1"
+        },
+        {
+            "image":"img/dog1.jpg",
+            "number":"2"
+        },
+        {
+            "image":"img/dog2.jpg",
+            "number":"3"
+        },
+        {
+            "image":"img/dog3.jpg",
+            "number":"4"
+        },
+        {
+            "image":"img/dog4.jpg",
+            "number":"5"
+        },
+        {
+            "image":"img/dog5.jpg",
+            "number":"6"
+        },
+        {
+            "image":"img/dog6.jpg",
+            "number":"7"
+        }
+        
+    ]
+}
