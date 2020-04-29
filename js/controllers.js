@@ -1,11 +1,11 @@
 var portfolioApp = angular.module('portfolioApp', [])
 portfolioApp.controller('CaruzelListCtrl', function ($scope, $http) {
-    $http.get('galleries.json').then(function (response) {
+    $http.get('./img/galleries.json').then(function (response) {
         $scope.caruzelItems = response.data.caruzelItems;
     });
 });
 portfolioApp.controller('GalleryListCtrl', function ($scope, $http) {
-    $http.get('galleries.json').then(function (response) {
+    $http.get('./img/galleries.json').then(function (response) {
         $scope.galleries = response.data.galleries;
         $scope.sortList = response.data.sortList;
         $scope.orderProp = $scope.sortList[1];
